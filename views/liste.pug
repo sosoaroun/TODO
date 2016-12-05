@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+    p
+    a(href="/sessions/") login
+    p
+    a(href="/users/add") register
+    p
+    a(href="/sessions/logout") logout
+    p
+    a(href="/todo/") todos
+  body
+  p Bonjour, votre pseudo est :
+    pseudo= pseudo
+
+
+  p Voici la liste des utilisateurs :
+
+  table(border=1)
+    tr
+      th Id
+      th Pseudo
+      th Prénom
+      th Email
+      th Mdp
+      th Actions
+
+    each user in users
+      tr
+        td= user.id
+        td= user.name
+        td= user.username
+        td= user.email
+        td= user.password
+        td
+          ul
+            li
+              a(href="/users/" + user.id) Voir
+            li
+              a(href="/users/" + user.id + '/edit') Éditer
+            li
+              a(href="/users/" + user.id + "/delete") Supprimer
+
+  ul.pagination
+    - var nbPage = Math.ceil(count / limit)
+    - for (var i = 0; i < nbPage; i++) {
+      li
+        a(href='/users?limit=' + limit + '&offset=' + (i*limit)) Page #{i + 1}
+    - }

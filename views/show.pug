@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+    p
+    a(href="/sessions/") login
+    p
+    a(href="/users/add") register
+
+    p
+    a(href="/todo/") todos
+    p
+    a(href="/sessions/logout") logout
+  body
+
+  p Voici l'utilisateur :
+
+  table(border=1)
+    tr
+      th Id
+      td= user.id
+    tr
+      th Pseudo
+      td= user.name
+    tr
+      th Prénom
+      td= user.username
+    tr
+      th Email
+      td= user.email
+
+    tr
+        th mdp
+        td= user.password

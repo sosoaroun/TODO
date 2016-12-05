@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  body
+
+
+  li
+    a(href="/todo/add") Ajouter une tache
+
+    li
+      a(href="/users/") Liste users
+
+    li
+      a(href="/sessions/logout") Logout
+
+  p Voici la liste des taches :
+
+  table(border=1)
+    tr
+      th TodoId
+      th UserId
+      th message
+      th createdAt
+      th updatedAt
+
+    each todo in todos
+      tr
+        td= todo.id
+        td= todo.userId
+        td= todo.message
+        td= todo.createdAt
+        td= todo.updatedAt
+        td
+          ul
+            li
+              a(href="/todo/" + todo.id + '/edit') Éditer
+            li
+              a(href="/todo/" + todo.id + "/delete") Supprimer

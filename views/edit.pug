@@ -1,0 +1,41 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/css/style.css')
+  p
+    a(href="/sessions/") login
+  p
+  a(href="/users/add") register
+  p
+  a(href="/sessions/logout") logout
+  p
+  a(href="/todo/") todos
+  body
+
+  p Editer l'utilisateur :
+
+  form(action=action method='post')
+    table(border=1)
+      tr
+        th Id
+        td= user.id
+      tr
+        th Pseudo
+        td
+          input(name='pseudo' value=user.name)
+      tr
+        th Prénom
+        td
+          input(name='firstname' value=user.username)
+      tr
+        th Email
+        td
+          input(name='email' value=user.email)
+
+      tr
+        th Mdp
+            td
+              input(name='mdp' value=user.password)
+
+    input(type='submit', value='Envoyer')
